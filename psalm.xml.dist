@@ -387,6 +387,13 @@
                 <file name="src/Query/QueryBuilder.php"/>
             </errorLevel>
         </ReferenceConstraintViolation>
+        <!-- Workaround for https://github.com/vimeo/psalm/issues/7026 -->
+        <ReservedWord>
+            <errorLevel type="suppress">
+                <directory name="src"/>
+                <directory name="tests"/>
+            </errorLevel>
+        </ReservedWord>
         <TooManyArguments>
             <errorLevel type="suppress">
                 <!-- See https://github.com/doctrine/dbal/pull/3562 -->
@@ -417,15 +424,6 @@
                 <referencedClass name="Doctrine\DBAL\Portability\T"/>
             </errorLevel>
         </UndefinedDocblockClass>
-        <UnsafeInstantiation>
-            <errorLevel type="suppress">
-                <!-- See https://github.com/doctrine/dbal/issues/4510 -->
-                <file name="src/Platforms/AbstractPlatform.php"/>
-                <file name="src/Tools/Console/Command/ReservedWordsCommand.php"/>
-                <!-- See https://github.com/doctrine/dbal/issues/4511 -->
-                <file name="src/DriverManager.php"/>
-            </errorLevel>
-        </UnsafeInstantiation>
         <InvalidReturnType>
             <errorLevel type="suppress">
                 <!-- lastInsertId has a return type that does not match the one defined in the interface-->
